@@ -1,0 +1,225 @@
+/* Terminal styles - Mobile Optimized */
+#terminal {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+#terminal:hover {
+    border-color: rgba(79, 195, 247, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-title {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.control-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.terminal-body {
+    line-height: 1.6;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.prompt {
+    color: var(--primary-color);
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.command {
+    color: var(--text-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.9rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: var(--primary-color);
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0; }
+}
+
+.output {
+    margin-top: 1.2rem;
+    white-space: pre-wrap;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.output a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary-color);
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.output a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.output .highlight {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.output .comment {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.output ul {
+    padding-left: 1.2rem;
+    margin: 0.8rem 0;
+}
+
+.output li {
+    margin-bottom: 0.4rem;
+    position: relative;
+}
+
+.output li::before {
+    content: "→";
+    color: var(--primary-color);
+    position: absolute;
+    left: -1.2rem;
+    font-size: 0.9rem;
+}
+
+.decor-char {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.at-char {
+    color: var(--primary-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+#output {
+    line-height: 1.4;
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #terminal {
+        padding: 1rem;
+    }
+    
+    .terminal-header {
+        margin-bottom: 1rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.85rem;
+    }
+    
+    .control-btn {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .terminal-body {
+        font-size: 0.85rem;
+    }
+    
+    .prompt, .command, .output, .output a {
+        font-size: 0.85rem;
+    }
+    
+    .cursor {
+        width: 6px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #terminal {
+        padding: 0.8rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.8rem;
+    }
+    
+    .terminal-body {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    .output ul {
+        padding-left: 1rem;
+    }
+    
+    .output li::before {
+        left: -1rem;
+    }
+}

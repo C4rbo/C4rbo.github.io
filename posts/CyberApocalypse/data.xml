@@ -1,0 +1,257 @@
+<writeups>  
+    <writeup>
+        <title>The Stone That Whispers</title>
+        <description>This challenge tests basic **OSINT skills**, requiring you to use image analysis, map research, and logical deduction to reveal its identity.</description>
+        <category>OSINT</category>
+        <difficulty>very easy</difficulty>
+        <flag>HTB{Saints_The_Cross}</flag>
+        <date>2025-03-26</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>In the heart of Eldoria's twilight archives, Nyla studies the image of an ancient Celtic cross. Her enchanted runes illuminate the intricate carvings, revealing secrets lost in time. The cross stands at the crossroads of realms and centuries, its weathered surface telling tales older than Eldoria itself.</p>
+            
+            <h2>Description</h2>
+            <p>Throughout history, many Celtic crosses have been erected, each carrying cultural and religious significance. However, this particular cross holds a name of great importance that can be discovered through careful image analysis.</p>
+            <img src="./img/os_0.png"/>
+            <p class="image-caption">Muiredach's High Cross - 9th century Celtic cross</p>        
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Reverse Image Search</h3>
+            <p>Upload the provided image to Google Reverse Image Search or a similar tool. The results will indicate that the image is associated with a historical monument located on a hill in **Ireland**.</p>
+            
+            <h3>Step 2: Identifying the Hill</h3>
+            <p>Using Google Maps or another mapping service, they must explore Tara’s Hill** and locate the exact monument. Further inspection will reveal that the stone in the image is named Lia Fail.</p>
+            
+            <h3>Step 3: Finding the True Name</h3>
+            <p>Using **Google Maps** or another mapping service, they must explore **Tara’s Hill** and locate the exact monument. Further inspection will reveal that the stone in the image is named **Lia Fail**.</p>
+            
+            <h2>Flag Extraction</h2>
+            <p>Once the correct name is confirmed, submit the flag in the following format:</p>
+            <pre><code>HTB{Same_Stone}</code></pre>
+        </content>
+    </writeup>
+
+    <writeup>             
+        <title>Echoes in Stone</title>
+        <description>OSINT analysis to identify an ancient Celtic cross through reverse image search.</description>
+        <category>OSINT</category>
+        <difficulty>very easy</difficulty>
+        <flag>HTB{Saints_The_Cross}</flag>
+        <date>2025-03-18</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>In the heart of Eldoria's twilight archives, Nyla studies the image of an ancient Celtic cross. Her enchanted runes illuminate the intricate carvings, revealing secrets lost in time. The cross stands at the crossroads of realms and centuries, its weathered surface telling tales older than Eldoria itself.</p>
+            
+            <h2>Description</h2>
+            <p>Throughout history, many Celtic crosses have been erected, each carrying cultural and religious significance. However, this particular cross holds a name of great importance that can be discovered through careful image analysis.</p>
+            <img src="./img/os_1.png"/>
+            <p class="image-caption">Muiredach's High Cross - 9th century Celtic cross</p>        
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Reverse Image Search</h3>
+            <p>Upload the given image to Google Reverse Image Search. The results will lead to various historical pages and image archives referencing Celtic high crosses in Ireland.</p>
+            
+            <h3>Step 2: Identifying the Cross</h3>
+            <p>Compare the image details with similar Celtic crosses to identify the exact match, focusing on the carvings and structure.</p>
+            
+            <h3>Step 3: Confirming the Name</h3>
+            <p>Through careful analysis, participants will discover that the cross in the image is known as <strong>Muiredach's High Cross</strong>, one of Ireland's most famous Celtic crosses.</p>
+            
+            <h2>Flag Extraction</h2>
+            <p>Once the correct name is confirmed, submit the flag in the following format:</p>
+            <pre><code>HTB{Name_Obj}</code></pre>
+        </content>
+    </writeup>
+
+    <writeup>             
+        <title>The Mechanical Birds Nest</title>
+        <description>OSINT analysis to identify an ancient Celtic cross through reverse image search.</description>
+        <category>OSINT</category>
+        <difficulty>easy</difficulty>
+        <flag>HTB{Saints_The_Cross}</flag>
+        <date>2025-03-27</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>In the highest tower of Eldoria's archives, Nyla manipulates a crystal scrying glass, focusing on a forbidden fortress in the desert kingdoms. The Queen's agents have discovered a strange mechanical bird within the fortress walls—an unusual flying machine whose exact position could reveal strategic secrets. Nyla's fingers trace precise measurement runes across the crystal's surface as the aerial image sharpens. Her magical lattice grid overlays the vision, calculating exact distances and positions. The blue runes along her sleeves pulse rhythmically as coordinates appear in glowing script. Another hidden truth uncovered by the realm's premier information seeker, who knows that even the most distant secrets cannot hide from one who sees with magical precision.</p>
+            
+            <h2>Description</h2>
+            <p>A high-resolution satellite scan of Area 51 has captured an unidentified helicopter within a secure perimeter. Your objective is to locate this aircraft using publicly available satellite imagery and determine its precise latitude and longitude. By cross-referencing the image with Google Maps, you can identify the helicopter’s position and extract its coordinates.</p>
+            <img src="./img/os_2.png"/>
+            <p class="image-caption">Elicopter - Area 51</p>        
+            <h2>Steps to Solve</h2>
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Reverse Image Search</h3>
+            <p>Open Google Maps or Google Earth and navigate to Area 51, Nevada.</p>
+            
+            <h3>Step 2: Identifying the vehicle</h3>
+            <p>Switch to satellite view and carefully scan the facility for a helicopter.</p>
+            
+            <h3>Step 3: find the coords</h3>
+            <p>Pinpoint the helicopter’s location and extract its precise coordinates:
+                Latitude: 37°14'49.5" N
+                Longitude: 115°48'44.3" W
+            </p>
+            
+            <h2>Flag Extraction</h2>
+            <p>Once the correct name is confirmed, submit the flag in the following format:</p>
+            <pre><code>HTB{123.123_-123.123}</code></pre>
+        </content>
+    </writeup>
+
+    <writeup>             
+        <title>The Hillside Haven</title>
+        <description>OSINT challenge to locate a specific house using satellite imagery and geolocation techniques.</description>
+        <category>OSINT</category>
+        <difficulty>easy</difficulty>
+        <flag>HTB{356_CoventryRoad}</flag>
+        <date>2025-03-26</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>Nyla stands before her largest crystal, hands weaving intricate patterns as she conjures an aerial view of the Western Hills district. A noble family's ancestral home must be located precisely—its entrance marked with a numerical rune that could unlock valuable diplomatic secrets. The crystalline vision floats above her palms, revealing winding roads and nestled dwellings along the hillsides. Her enchanted sight zooms closer as she traces the hidden pathways between estates. The magical markers on her map pulse brighter as she narrows her search, until finally, the numerical sigil above one particular doorway glows with confirmation. Another secret revealed by Eldoria's master information seeker, who knows that even among a thousand similar dwellings, each bears a unique magical signature for those with eyes to see.</p>
+            
+            <h2>Description</h2>
+            <p>You've received only a satellite image showing a house. Your task is to pinpoint its exact location using only the image and the hints embedded in this challenge description.</p>
+            <img src="./img/os_4.png"/>
+            <p class="image-caption">House</p>        
+            <h2>Steps to Solve</h2>
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Define Search Area</h3>
+            <p>Focus on the Berkeley/Oakland Hills region in California, based on the provided hints.</p>
+            
+            <h3>Step 2: Identify 'Road' Streets</h3>
+            <p>Look for streets ending in "Road" within the targeted area.</p>
+            
+            <h3>Step 3: Use Image Clues</h3>
+            <p>Check for house number 356 and the silver Honda Fit in potential locations.</p>
+            
+            <h3>Step 4: Street View Investigation</h3>
+            <p>Use Google Maps Street View to verify the house's match with the given image.</p>
+            
+            <h2>Flag Extraction</h2>
+            <p>Once the correct house is found, submit the flag in the following format:</p>
+            <pre><code>HTB{Number_StreetnameRoad}</code></pre>
+        </content>
+    </writeup>
+
+    <writeup>             
+        <title>The Ancient Citadel</title>
+        <description>OSINT challenge to identify a historic fortress in Latin America using reverse image search.</description>
+        <category>OSINT</category>
+        <difficulty>medium</difficulty>
+        <flag>HTB{street number,postal code city, region}</flag>
+        <date>2025-03-18</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>Deep in her sanctum beneath Eldoria's streets, Nyla arranges seven crystalline orbs in a perfect circle. Each contains a different vision of stone battlements and weathered walls—possible matches for the mysterious fortress the Queen seeks in the southern kingdoms of Chile. The image in her central crystal pulses with ancient power, showing a majestic citadel hidden among the distant Chilean mountains. Her fingers dance across each comparison crystal, her enchanted sight noting subtle architectural differences between the visions. The runes along her sleeves glow more intensely with each elimination until only one crystal remains illuminated. As she focuses her magical threads on this final vision, precise location runes appear in glowing script around the orb. Nyla smiles in satisfaction as the fortress reveals not just its position, but its true name and history. A more challenging mystery solved by Eldoria's premier information seeker, who knows that even the most distant fortifications cannot hide their secrets from one who compares the patterns of stone and shadow.</p>
+            
+            <h2>Description</h2>
+            <p>You’ve been provided with an image of a majestic fortress in Latin America. The task is simple: reverse-search the image to begin your search for clues. Once you start searching, you’ll be directed to several castles, and you must check each one for any similarity to the structure in the image. The closer you get, the clearer the path will become.</p>
+            <img src="./img/os_3.png"/>
+            <p class="image-caption">Fortress</p>        
+            <h2>Steps to Solve</h2>
+            
+            <h3>Step 1: Reverse Image Search</h3>
+            <p>Upload the given image to Google Reverse Image Search. This will provide potential matches and locations.</p>
+            
+            <h3>Step 2: Compare Architectural Features</h3>
+            <p>Analyze the results and compare the fortress in the image with the ones found in search results.</p>
+            
+            <h3>Step 3: Verify the Location</h3>
+            <p>Once a match is identified, confirm the exact address of the fortress.</p>
+            
+            <h2>Flag Extraction</h2>
+            <p>Submit the full address in the following format:</p>
+            <pre><code>HTB{street number,postal code city, region}</code></pre>
+        </content>
+    </writeup>
+<writeup>             
+        <title>The Poisoned Scroll</title>
+        <description>OSINT challenge to investigate a malware variant linked to APT29 and attribute it to their recent espionage campaigns.</description>
+        <category>OSINT</category>
+        <difficulty>medium</difficulty>
+        <flag>HTB{malware_name}</flag>
+        <date>2025-03-18</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>In her crystal-lit sanctum, Nyla examines reports of a series of magical attacks against the ruling council of Germinia, Eldoria's eastern ally. The attacks all bear the signature of the Shadow Ravens, a notorious cabal of dark mages known for their espionage across the realms. Her fingers trace connections between affected scrolls and contaminated artifacts, seeking the specific enchantment weapon deployed against the Germinian leaders. The runes along her sleeves pulse rhythmically as she sifts through intercepted messages and magical residue analyses from the attack sites. Her network of information crystals glows brighter as patterns emerge in the magical attacks—each victim touched by the same corrupting spell, though disguised under different manifestations. Finally, the name of the specific dark enchantment materializes in glowing script above her central crystal. Another dangerous threat identified by Eldoria's master information seeker, who knows that even the most sophisticated magical weapons leave distinctive traces for those who know how to read the patterns of corruption.</p>
+            
+            <h2>Description</h2>
+            <p>Threat intelligence reports suggest that APT29 has been using a sophisticated malware variant in their campaigns against German political parties. Your mission is to:</p>
+            <ul>
+                <li>Investigate the malware used by APT29 in these attacks.</li>
+                <li>Confirm the malware variant based on available information.</li>
+            </ul>
+            <p>This challenge tests your research and OSINT pivoting skills—if you dig into the right sources, you’ll uncover the malware behind the attack.</p>
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Investigate APT29’s Recent Campaign</h3>
+            <p>APT29 is known for its cyber espionage operations. A recent report mentions their attack on German political parties. Search for reports and blog posts that describe these activities.</p>
+            <p><strong>Key Finding:</strong> A Google Cloud blog post from February 2024 provides insight into the malware used.</p>
+            
+            <h3>Step 2: Identify the Malware</h3>
+            <p>The blog post from Google Cloud provides key details on the malware used by APT29 in these attacks. Read through the article to find the name of the malware deployed in the German political party attack.</p>
+
+            <h2>Flag Extraction</h2>
+            <p>Once you identify the malware variant, submit the flag in the following format:</p>
+            <pre><code>HTB{malware_name}</code></pre>
+        </content>
+    </writeup>
+
+    <writeup>             
+        <title>The Poisoned Scroll</title>
+        <description>OSINT challenge to investigate a malware variant linked to APT29 and attribute it to their recent espionage campaigns.</description>
+        <category>OSINT</category>
+        <difficulty>medium</difficulty>
+        <flag>HTB{malware_name}</flag>
+        <date>2025-03-18</date>
+        <author>Joaquin Iglesias</author>
+        <content>
+            <h2>Introduction</h2>
+            <p>In her crystal-lit sanctum, Nyla examines reports of a series of magical attacks against the ruling council of Germinia, Eldoria's eastern ally. The attacks all bear the signature of the Shadow Ravens, a notorious cabal of dark mages known for their espionage across the realms. Her fingers trace connections between affected scrolls and contaminated artifacts, seeking the specific enchantment weapon deployed against the Germinian leaders. The runes along her sleeves pulse rhythmically as she sifts through intercepted messages and magical residue analyses from the attack sites. Her network of information crystals glows brighter as patterns emerge in the magical attacks—each victim touched by the same corrupting spell, though disguised under different manifestations. Finally, the name of the specific dark enchantment materializes in glowing script above her central crystal. Another dangerous threat identified by Eldoria's master information seeker, who knows that even the most sophisticated magical weapons leave distinctive traces for those who know how to read the patterns of corruption.</p>
+            
+            <h2>Description</h2>
+            <p>Threat intelligence reports suggest that APT29 has been using a sophisticated malware variant in their campaigns against German political parties. Your mission is to:</p>
+            <ul>
+                <li>Investigate the malware used by APT29 in these attacks.</li>
+                <li>Confirm the malware variant based on available information.</li>
+            </ul>
+            <p>This challenge tests your research and OSINT pivoting skills—if you dig into the right sources, you’ll uncover the malware behind the attack.</p>
+
+            <h2>Skills Required</h2>
+            <ul>
+                <li>Internet Search & OSINT Pivoting</li>
+                <li>Investigating Threat Intelligence Reports</li>
+                <li>Malware Attribution</li>
+                <li>Threat Intelligence Analysis</li>
+            </ul>
+
+            <h2>Skills Learned</h2>
+            <ul>
+                <li>How to identify and attribute malware used by APT groups</li>
+                <li>How to extract intelligence from publicly available reports</li>
+                <li>How to correlate OSINT data to pinpoint malicious activities</li>
+            </ul>
+            
+            <h2>Enumeration</h2>
+            <h3>Step 1: Investigate APT29’s Recent Campaign</h3>
+            <p>APT29 is known for its cyber espionage operations. A recent report mentions their attack on German political parties. Search for reports and blog posts that describe these activities.</p>
+            <p><strong>Key Finding:</strong> A Google Cloud blog post from February 2024 provides insight into the malware used.</p>
+            
+            <h3>Step 2: Identify the Malware</h3>
+            <p>The blog post from Google Cloud provides key details on the malware used by APT29 in these attacks. Read through the article to find the name of the malware deployed in the German political party attack.</p>
+
+            <h2>Flag Extraction</h2>
+            <p>Once you identify the malware variant, submit the flag in the following format:</p>
+            <pre><code>HTB{malware_name}</code></pre>
+        </content>
+    </writeup>
+    
+</writeups>

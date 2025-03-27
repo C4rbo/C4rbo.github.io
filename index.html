@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbo | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/terminal.css">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <meta name="theme-color" content="#4fc3f7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Carbo">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-header {
+            background: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #121212);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/matrix-pattern.png') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .logo-container {
+            transition: transform 0.3s ease;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .logo-img {
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(79, 195, 247, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-img:hover {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 0 40px rgba(79, 195, 247, 0.6);
+        }
+        
+        .hero-title {
+            text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+        
+        .social-links .social-link {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links .social-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.4), transparent);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+        }
+        
+        .social-links .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+        
+        .post-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .post-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Animazioni specifiche per sezioni */
+        #about {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        #about.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Terminale animato */
+        #terminal {
+            transform: perspective(1000px) rotateX(10deg);
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        #terminal:hover {
+            transform: perspective(1000px) rotateX(0deg);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Footer animato */
+        footer {
+            background: linear-gradient(to right, #0a0a0a, #121212, #0a0a0a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/dots-pattern.png') center/cover;
+            opacity: 0.05;
+        }
+        
+        footer p {
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo animate__animated animate__fadeInLeft">CARBO</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="posts/posts.html" class="nav-link animate__animated animate__fadeInDown animate__delay-1s">Posts</a>
+                <!-- <a href="blog/blog.html" class="nav-link animate__animated animate__fadeInDown animate__delay-2s">Blog</a> -->
+                <a href="workinprogress.html" class="nav-link animate__animated animate__fadeInDown animate__delay-2s">Blog</a>
+                <a href="about/about.html" class="nav-link animate__animated animate__fadeInDown animate__delay-3s">About</a>
+            </div>
+            <button class="hamburger animate__animated animate__fadeInRight" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero-header">
+        <div class="logo-container animate__animated animate__zoomIn animate__delay-1s">
+            <img src="assets/img/logo.jpeg" alt="My logo" class="logo-img">
+        </div>
+        <h1 class="hero-title animate__animated animate__fadeIn animate__delay-2s">Carbo</h1>
+        <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-3s">Italian Software Developer and Cybersecurity enthusiast</p>
+        <div class="social-links">
+            <a href="https://github.com/C4rbo" target="_blank" class="social-link animate__animated animate__fadeIn animate__delay-1s"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" class="social-link animate__animated animate__fadeIn animate__delay-2s" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://discord.com/users/315450580342538251" class="social-link animate__animated animate__fadeIn animate__delay-3s" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://www.tiktok.com/@carbodev" class="social-link animate__animated animate__fadeIn animate__delay-4s" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </header>
+
+    <section id="about" class="animate__animated">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">About Me</h2>
+            <div id="terminal" class="animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="terminal-header">
+                    <div class="terminal-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 18L10 12L4 6"></path>
+                            <path d="M12 18L18 12L12 6"></path>
+                        </svg>
+                        carbo@portfolio:~
+                    </div>
+                    <div class="terminal-controls">
+                        <div class="control-btn close" style="pointer-events: none;" title="Close"></div>
+                        <div class="control-btn minimize" title="Minimize"></div>
+                        <div class="control-btn maximize" title="Maximize"></div>
+                    </div>
+                </div>
+                <div class="terminal-body">
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command" id="typing-text"></span>
+                        <span class="cursor" id="cursor"></span>
+                    </div>
+                    <div class="output" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="posts" class="container animate__animated animate__fadeIn animate__delay-2s">
+        <h2 class="section-title"><i class="fas fa-flag"></i> Latest challenge</h2>
+        <div class="posts-container" id="postsContainer">
+            <!-- I post verranno caricati dinamicamente -->
+        </div>
+    </section>
+
+    <footer class="animate__animated animate__fadeIn animate__delay-3s">
+        <p>&copy; 2025 Carbo.</p>
+    </footer>
+
+    <script src="assets/js/terminal.js"></script>
+    <script src="assets/js/posts.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animazione sezione about quando entra nella viewport
+            const aboutSection = document.getElementById('about');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        aboutSection.classList.add('animate__fadeInUp');
+                        aboutSection.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(aboutSection);
+            
+            const posts = document.querySelectorAll('.post-card');
+            const postObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate__fadeInUp');
+                        }, index * 3000);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            posts.forEach(post => {
+                postObserver.observe(post);
+            });
+            
+            const heroHeader = document.querySelector('.hero-header');
+            if (heroHeader) {
+                window.addEventListener('scroll', function() {
+                    const scrollPosition = window.pageYOffset;
+                    heroHeader.style.backgroundPositionY = scrollPosition * 1 + 'px';
+                });
+            }
+            
+            const terminal = document.getElementById('terminal');
+            if (terminal) {
+                terminal.addEventListener('mousemove', (e) => {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                    terminal.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+                });
+                
+                terminal.addEventListener('mouseenter', () => {
+                    terminal.style.transition = 'all 0.1s ease';
+                });
+                
+                terminal.addEventListener('mouseleave', () => {
+                    terminal.style.transition = 'all 0.3s ease';
+                    terminal.style.transform = 'perspective(1000px) rotateY(0) rotateX(10deg)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

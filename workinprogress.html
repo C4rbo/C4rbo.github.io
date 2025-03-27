@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbo | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#4fc3f7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Carbo">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4fc3f7, #2196F3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .error-message {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+        
+        .error-description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .terminal-404 {
+            background: var(--light-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .terminal-line {
+            margin-bottom: 10px;
+        }
+        
+        .terminal-prompt {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .terminal-command {
+            color: var(--text-color);
+        }
+        
+        .terminal-output {
+            color: var(--text-secondary);
+            margin-left: 20px;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(79, 195, 247, 0.1));
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+        }
+        
+        .home-btn:hover {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.3), rgba(79, 195, 247, 0.2));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .error-message {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CARBO</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="posts/posts.html" class="nav-link">Posts</a>
+                <a href="#" class="nav-link">Blog</a>
+                <a href="about/about.html" class="nav-link">About</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="error-container">
+        <div class="error-code">Work in progess</div>
+        <h1 class="error-message">Todo</h1>
+        
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Carbo. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

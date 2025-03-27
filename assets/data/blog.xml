@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blog>
+    <!-- Post di Sicurezza -->
+    <post id="1" category="security" date="2025-03-15">
+        <title>Guida Completa alle Vulnerabilità XSS</title>
+        <description>Tutto quello che devi sapere sugli attacchi Cross-Site Scripting: tipologie, esempi pratici e tecniche di prevenzione.</description>
+        <content_file>posts/xss-guide.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>web security</tag>
+            <tag>xss</tag>
+            <tag>owasp</tag>
+            <tag>hacking</tag>
+        </tags>
+        <thumbnail>images/xss-thumb.jpg</thumbnail>
+    </post>
+    
+    <!-- Cheatsheet Linux -->
+    <post id="2" category="cheatsheet" date="2025-03-10">
+        <title>Cheatsheet Completa di Comandi Linux</title>
+        <description>Raccolta dei comandi Linux più utili per amministratori di sistema e pentester, con esempi pratici.</description>
+        <content_file>posts/linux-cheatsheet.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>linux</tag>
+            <tag>cheatsheet</tag>
+            <tag>sysadmin</tag>
+            <tag>terminal</tag>
+        </tags>
+        <thumbnail>images/linux-thumb.jpg</thumbnail>
+    </post>
+    
+    <!-- Programmazione Python -->
+    <post id="3" category="programming" date="2025-03-05">
+        <title>Best Practices di Sicurezza in Python</title>
+        <description>Come scrivere codice Python sicuro ed evitare le vulnerabilità più comuni nelle applicazioni web.</description>
+        <content_file>posts/python-security.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>python</tag>
+            <tag>security</tag>
+            <tag>web development</tag>
+        </tags>
+        <thumbnail>images/python-thumb.jpg</thumbnail>
+    </post>
+    
+    <!-- Tutorial Wireshark -->
+    <post id="4" category="tutorial" date="2025-02-28">
+        <title>Analisi del Traffico con Wireshark</title>
+        <description>Guida pratica all'uso di Wireshark per analizzare il traffico di rete e identificare potenziali minacce.</description>
+        <content_file>posts/wireshark-tutorial.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>wireshark</tag>
+            <tag>network</tag>
+            <tag>security</tag>
+            <tag>tutorial</tag>
+        </tags>
+        <thumbnail>images/wireshark-thumb.jpg</thumbnail>
+    </post>
+    
+    <!-- Crittografia Moderna -->
+    <post id="5" category="security" date="2025-02-20">
+        <title>Fundamentals of Modern Cryptography</title>
+        <description>Introduction to modern cryptographic algorithms and their practical implementations in security systems.</description>
+        <content_file>posts/crypto-guide.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>cryptography</tag>
+            <tag>security</tag>
+            <tag>encryption</tag>
+        </tags>
+        <thumbnail>images/crypto-thumb.jpg</thumbnail>
+    </post>
+    
+    <!-- Cheatsheet SQL Injection -->
+    <post id="6" category="cheatsheet" date="2025-02-15">
+        <title>SQL Injection Cheatsheet</title>
+        <description>Comprehensive reference guide for SQL injection techniques and bypass methods for various database systems.</description>
+        <content_file>posts/sql-injection-cheatsheet.html</content_file>
+        <author>Carbo</author>
+        <tags>
+            <tag>sql</tag>
+            <tag>injection</tag>
+            <tag>web security</tag>
+            <tag>cheatsheet</tag>
+        </tags>
+        <thumbnail>images/sqli-thumb.jpg</thumbnail>
+    </post>
+</blog>
