@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const text = "cat carbo_profile.txt";
+    const text = "cat ab0ut_m3.txt";
     const typingElement = document.getElementById('typing-text');
     const outputElement = document.getElementById('output');
     const cursorElement = document.getElementById('cursor');
