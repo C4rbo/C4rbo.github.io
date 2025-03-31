@@ -1,0 +1,244 @@
+/* Writeup Page Styles */
+:root {
+    --primary-color: #6e48aa;
+    --secondary-color: #9d50bb;
+    --dark-bg: #121212;
+    --darker-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent-color: #ff5722;
+    --success-color: #4caf50;
+    --web-color: #4caf50;
+    --pwn-color: #f44336;
+    --crypto-color: #ff9800;
+    --forensics-color: #2196f3;
+    --reversing-color: #9c27b0;
+    --misc-color: #607d8b;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.writeup-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.writeup-header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.writeup-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.writeup-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.writeup-meta span {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.writeup-content {
+    margin-bottom: 40px;
+}
+
+.writeup-section {
+    margin-bottom: 30px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.writeup-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.writeup-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.writeup-section p {
+    margin-bottom: 15px;
+}
+
+pre {
+    background-color: var(--darker-bg);
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 20px 0;
+    border-left: 3px solid var(--primary-color);
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.flag-box {
+    background-color: var(--darker-bg);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px dashed var(--success-color);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.flag-box code {
+    color: var(--success-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.writeup-footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Category badges */
+.category-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.category-web {
+    background-color: var(--web-color);
+    color: white;
+}
+
+.category-pwn {
+    background-color: var(--pwn-color);
+    color: white;
+}
+
+.category-crypto {
+    background-color: var(--crypto-color);
+    color: white;
+}
+
+.category-forensics {
+    background-color: var(--forensics-color);
+    color: white;
+}
+
+.category-reversing {
+    background-color: var(--reversing-color);
+    color: white;
+}
+
+.category-misc {
+    background-color: var(--misc-color);
+    color: white;
+}
+
+/* Difficulty indicators */
+.difficulty-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.difficulty-easy {
+    background-color: #4caf50;
+    color: white;
+}
+
+.difficulty-medium {
+    background-color: #ff9800;
+    color: white;
+}
+
+.difficulty-hard {
+    background-color: #f44336;
+    color: white;
+}
+
+.difficulty-insane {
+    background-color: #9c27b0;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .writeup-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .writeup-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    pre {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}

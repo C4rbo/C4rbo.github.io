@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbo | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Carbo's Blog</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/ctf.css">
+    <link rel="stylesheet" href="/assets/css/writeup.css">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#4fc3f7">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,160 +18,91 @@
     <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
     <style>
         .error-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
             text-align: center;
-            padding: 20px;
+            padding: 5rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .error-code {
-            font-size: 6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #4fc3f7, #2196F3);
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #6e48aa, #9d50bb);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            line-height: 1;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
         }
         
         .error-message {
-            font-size: 1.8rem;
-            color: var(--text-color);
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 2rem;
         }
         
         .error-description {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .terminal-404 {
-            background: var(--light-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
-            max-width: 600px;
-            width: 100%;
-            border: 1px solid var(--border-color);
-            text-align: left;
-            font-family: 'Roboto Mono', monospace;
-        }
-        
-        .terminal-line {
-            margin-bottom: 10px;
-        }
-        
-        .terminal-prompt {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-        
-        .terminal-command {
-            color: var(--text-color);
-        }
-        
-        .terminal-output {
-            color: var(--text-secondary);
-            margin-left: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #a0a0a0;
         }
         
         .home-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(79, 195, 247, 0.1));
-            color: var(--primary-color);
-            text-decoration: none;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, #6e48aa, #9d50bb);
+            color: white;
             border-radius: 4px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(79, 195, 247, 0.3);
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
         }
         
         .home-btn:hover {
-            background: linear-gradient(135deg, rgba(79, 195, 247, 0.3), rgba(79, 195, 247, 0.2));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 4rem;
-            }
-            
-            .error-message {
-                font-size: 1.4rem;
-            }
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">CARBO</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="posts/posts.html" class="nav-link">Posts</a>
-                <a href="workinprogress.html" class="nav-link animate__animated animate__fadeInDown animate__delay-2s">Blog</a>
-                <a href="about/about.html" class="nav-link">About</a>
-            </div>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-flag"></i>
+            <h1>CTF Writeups</h1>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="overlay" id="overlay"></div>
+        <nav class="nav" id="mainNav">
+            <button class="close-menu" id="closeMenuBtn" style="display: none;">
+                <i class="fas fa-times"></i>
             </button>
-        </div>
-    </nav>
-    
-    <div class="error-container">
+            <ul>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/writeups/index.html">Writeup</a></li>
+                <li><a href="/work.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="assets/js/script.js"></script>
+
+    <main class="error-container">
         <div class="error-code">404</div>
-        <h1 class="error-message">Page Not Found</h1>
+        <h1 class="error-message">Flag Not Found</h1>
         <p class="error-description">
-            The page you're looking for doesn't exist or has been moved. 
-            Here are some helpful links instead:
+            The page you're looking for has been captured by the opponent team or never existed.
+            Let's get you back to safety.
         </p>
-        
-        <div class="terminal-404">
-            <div class="terminal-line">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-command">ls /available-pages</span>
-            </div>
-            <div class="terminal-output">
-                post&nbsp;&nbsp;&nbsp;blog&nbsp;&nbsp;&nbsp;about
-            </div>
-            
-            <div class="terminal-line">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-command">cd /</span>
-            </div>
-            
-            <div class="terminal-line">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-command">cat README.md</span>
-            </div>
-            <div class="terminal-output">
-                Welcome to Carbo's Portfolio<br>
-            </div>
+        <a href="/" class="home-btn">Return to Base</a>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Carbo'Blog. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
+            <a href="https://discord.com/users/315450580342538251" title="Discord"><i class='fab fa-discord'></i></a>
         </div>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 Carbo. All rights reserved.</p>
     </footer>
-    
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>

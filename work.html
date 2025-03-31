@@ -1,0 +1,118 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carbo's Blog</title>
+        <link rel="manifest" href="/site.webmanifest">    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/ctf.css">
+    <link rel="stylesheet" href="/assets/css/writeup.css">
+        <meta name="theme-color" content="#4fc3f7">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Carbo">
+        <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+        <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+        <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+        <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+        <style>
+            .maintenance-container {
+                text-align: center;
+                padding: 5rem 1rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .maintenance-icon {
+                font-size: 5rem;
+                color: #9d50bb;
+                margin-bottom: 2rem;
+            }
+            
+            .maintenance-message {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .maintenance-description {
+                font-size: 1.2rem;
+                margin-bottom: 3rem;
+                color: #a0a0a0;
+            }
+            
+            .progress-bar {
+                height: 6px;
+                background: #333;
+                border-radius: 3px;
+                margin-bottom: 3rem;
+                overflow: hidden;
+            }
+            
+            .progress {
+                height: 100%;
+                width: 65%;
+                background: linear-gradient(90deg, #6e48aa, #9d50bb);
+                animation: progressAnimation 2s infinite alternate;
+            }
+            
+            @keyframes progressAnimation {
+                0% { width: 65%; }
+                100% { width: 75%; }
+            }
+            
+            .contact-link {
+                color: #9d50bb;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-flag"></i>
+                <h1>CTF Writeups</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="overlay" id="overlay"></div>
+            <nav class="nav" id="mainNav">
+                <button class="close-menu" id="closeMenuBtn" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/writeups/index.html">Writeup</a></li>
+                    <li><a href="/work.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="maintenance-container">
+            <div class="maintenance-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h1 class="maintenance-message">Under Construction</h1>
+            <p class="maintenance-description">
+                We're currently performing some maintenance on this page to bring you an even better experience.
+                Please check back soon!
+            </p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <a href="/" class="home-btn">Return to Base</a>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2025 Carbo'Blog. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
+                <a href="https://discord.com/users/315450580342538251" title="Discord"><i class='fab fa-discord'></i></a>
+            </div>
+        </footer>
+    </body>
+    </html>

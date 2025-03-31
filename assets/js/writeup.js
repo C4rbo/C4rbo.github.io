@@ -1,141 +1,112 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Load data
-    fetch('data.xml')
-        .then(response => response.text())
-        .then(str => (new DOMParser()).parseFromString(str, "text/xml"))
-        .then(xml => {
-            const writeups = xml.querySelectorAll('writeup');
-            const gridContainer = document.getElementById('writeupGrid');
-            const modal = document.getElementById('writeupModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            const closeModal = document.getElementById('closeModal');
+document.addEventListener('DOMContentLoaded', function() {
+    // Estrai ID writeup dall'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const writeupId = urlParams.get('id');
+    const ctfFolder = urlParams.get('ctf') || 'ctf1'; // Default a ctf1 se non specificato
+    
+    if (!writeupId) {
+        showError('Nessun ID writeup specificato');
+        return;
+    }
+    
+    // Carica writeup da XML
+    loadWriteup(ctfFolder, writeupId);
+});
+
+function loadWriteup(ctfFolder, writeupId) {
+    fetch(`/writeups/${ctfFolder}/data.xml`)
+        .then(response => {
+            if (!response.ok) throw new Error('Errore nel caricamento del file XML');
+            return response.text();
+        })
+        .then(str => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(str, "text/xml");
             
-            let allWriteups = [];
-            
-            // Parse writeups
-            writeups.forEach(writeup => {
-                const writeupData = {
-                    title: writeup.querySelector('title').textContent,
-                    description: writeup.querySelector('description').textContent,
-                    category: writeup.querySelector('category').textContent,
-                    difficulty: writeup.querySelector('difficulty').textContent,
-                    flag: writeup.querySelector('flag').textContent,
-                    content: writeup.querySelector('content') ? writeup.querySelector('content').innerHTML : '',
-                    date: writeup.querySelector('date') ? writeup.querySelector('date').textContent : '',
-                    author: writeup.querySelector('author') ? writeup.querySelector('author').textContent : 'Anonymous'
-                };
-                allWriteups.push(writeupData);
-            });
-            
-            // Function to render writeups
-            function renderWriteups(writeupsToRender) {
-                gridContainer.innerHTML = '';
-                
-                if (writeupsToRender.length === 0) {
-                    gridContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No writeups found</p>';
-                    return;
-                }
-                
-                writeupsToRender.forEach(writeup => {
-                    const card = document.createElement('div');
-                    card.className = 'writeup-card';
-                    
-                    let difficultyClass = '';
-                    if (writeup.difficulty.toLowerCase().includes('veryEasy')) difficultyClass = 'very easy';
-                    else if (writeup.difficulty.toLowerCase().includes('easy')) difficultyClass = 'easy';
-                    else if (writeup.difficulty.toLowerCase().includes('medium')) difficultyClass = 'medium';
-                    else if (writeup.difficulty.toLowerCase().includes('hard')) difficultyClass = 'hard';
-                    
-                    card.innerHTML = `
-                        <div class="card-header">
-                            <h3>${writeup.title}</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="meta-info">
-                                <span class="category">${writeup.category}</span>
-                                <span class="difficulty ${difficultyClass}">${writeup.difficulty}</span>
-                            </div>
-                            <p class="description">${writeup.description}</p>
-                            <div class="meta-info">
-                                <small><i class="far fa-calendar-alt"></i> ${writeup.date || 'Unknown date'}</small>
-                                <small><i class="far fa-user"></i> ${writeup.author}</small>
-                            </div>
-                        </div>
-                    `;
-                    
-                    card.addEventListener('click', () => {
-                        openModal(writeup);
-                    });
-                    
-                    gridContainer.appendChild(card);
-                });
+            // Controlla errori di parsing XML
+            const parserError = xmlDoc.getElementsByTagName("parsererror");
+            if (parserError.length > 0) {
+                throw new Error('Errore nel parsing del XML: ' + parserError[0].textContent);
             }
             
-            function openModal(writeup) {
-                modalTitle.textContent = writeup.title;
-                
-                let difficultyClass = '';
-                if (writeup.difficulty.toLowerCase().includes('veryEasy')) difficultyClass = 'very easy';
-                else if (writeup.difficulty.toLowerCase().includes('easy')) difficultyClass = 'easy';
-                else if (writeup.difficulty.toLowerCase().includes('medium')) difficultyClass = 'medium';
-                else if (writeup.difficulty.toLowerCase().includes('hard')) difficultyClass = 'hard';
-                
-                modalBody.innerHTML = `
-                    <div class="writeup-meta">
-                        <p><strong>Author:</strong> ${writeup.author}</p>
-                        <p><strong>Difficulty:</strong> <span class="${difficultyClass}">${writeup.difficulty}</span></p>
-                        <p><strong>Category:</strong> ${writeup.category}</p>
-                    </div>
-                    
-                    <div class="writeup-content">
-                        ${writeup.content || `<p>${writeup.description}</p><p>Writeup details not available.</p>`}
-                    </div>
-                    
-                    <div class="flag-reveal">
-                        <h3><i class="fas fa-flag"></i> Flag</h3>
-                        <p>Click the button to reveal the flag:</p>
-                        <button id="revealFlag">Show Flag</button>
-                        <div class="flag-value" id="flagValue">${writeup.flag}</div>
-                    </div>
-                `;
-                
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                document.getElementById('revealFlag').addEventListener('click', function() {
-                    const flagValue = document.getElementById('flagValue');
-                    if (flagValue.style.display === 'block') {
-                        flagValue.style.display = 'none';
-                        this.textContent = 'Show Flag';
-                    } else {
-                        flagValue.style.display = 'block';
-                        this.textContent = 'Hide Flag';
-                    }
-                });
+            return xmlDoc;
+        })
+        .then(xmlDoc => {
+            const writeup = xmlDoc.querySelector(`writeup[id="${writeupId}"]`);
+            
+            if (!writeup) {
+                showError('Writeup non trovato');
+                return;
             }
             
-            closeModal.addEventListener('click', () => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            renderWriteups(allWriteups);
+            displayWriteup(writeup);
         })
         .catch(error => {
-            console.error("Error loading writeups:", error);
-            document.getElementById('writeupGrid').innerHTML = `
-                <p style="grid-column: 1/-1; text-align: center; color: #ff2d75;">
-                    <i class="fas fa-exclamation-triangle"></i> Error loading writeups. 
-                    Please refresh the page or check your connection.
-                </p>
-            `;
+            console.error('Errore nel caricamento del writeup:', error);
+            showError('Errore nel caricamento dei dati del writeup: ' + error.message);
         });
-});
+}
+
+function displayWriteup(writeup) {
+    // Imposta titolo
+    document.getElementById('writeup-title').textContent = 
+        writeup.querySelector('title').textContent;
+    
+    // Imposta metainformazioni
+    const metaContainer = document.getElementById('writeup-meta');
+    const ctf = writeup.querySelector('ctf').textContent;
+    const category = writeup.getAttribute('category');
+    const points = writeup.getAttribute('points');
+    const difficulty = writeup.getAttribute('difficulty');
+    
+    metaContainer.innerHTML = `
+        <span>${ctf}</span>
+        <span><span class="category-badge category-${category.toLowerCase()}">${category}</span> - ${points} points</span>
+        <span><span class="difficulty-badge difficulty-${difficulty.toLowerCase()}">${difficulty}</span></span>
+    `;
+    
+    // Imposta contenuto
+    const contentContainer = document.getElementById('writeup-content');
+    const sections = writeup.querySelectorAll('section');
+    
+    let contentHTML = '';
+    sections.forEach(section => {
+        const title = section.querySelector('title').textContent;
+        const body = section.querySelector('body').textContent;
+        
+        contentHTML += `
+            <section class="writeup-section">
+                <h2>${title}</h2>
+                ${formatBodyContent(body)}
+            </section>
+        `;
+    });
+    
+    contentContainer.innerHTML = contentHTML;
+    
+    // Imposta autore
+    const author = writeup.querySelector('author').textContent;
+    const date = writeup.querySelector('date').textContent;
+    document.getElementById('writeup-author').textContent = `Scritto da ${author} - ${date}`;
+}
+
+function formatBodyContent(body) {
+    // Converti i blocchi di codice marcati con ``` in HTML corretto
+    return body.replace(/```([\s\S]*?)```/g, function(match, code) {
+        // Sostituisci caratteri speciali HTML
+        const escapedCode = code.trim()
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        return `<pre><code>${escapedCode}</code></pre>`;
+    });
+}
+
+function showError(message) {
+    document.getElementById('writeup-title').textContent = 'Errore';
+    document.getElementById('writeup-content').innerHTML = 
+        `<div class="error-message">
+            <p>${message}</p>
+            <p>Controlla l'URL o riprova più tardi.</p>
+        </div>`;
+}

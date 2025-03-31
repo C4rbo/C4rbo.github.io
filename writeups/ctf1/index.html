@@ -17,188 +17,6 @@
     <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
     <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
     <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
-    <style>
-        /* Profile Section Styles */
-        .profile-section {
-            background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
-            padding: 3rem 0;
-            color: white;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .profile-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .profile-name {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, #6e48aa, #9d50bb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(110, 72, 170, 0.3);
-        }
-        
-        .profile-title {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-            font-weight: 300;
-        }
-        
-        .profile-description {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #a0a0a0;
-        }
-        
-        .profile-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .profile-social a {
-            color: #e0e0e0;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .profile-social a:hover {
-            color: #9d50bb;
-            transform: translateY(-3px);
-        }
-        
-        /* Terminal Styles */
-        .terminal-container {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin: 3rem auto;
-            overflow: hidden;
-            font-family: 'Courier New', monospace;
-            max-width: 900px;
-            height: 550px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .terminal-header {
-            background-color: #333;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        
-        .terminal-buttons {
-            display: flex;
-            gap: 8px;
-            margin-right: 12px;
-        }
-        
-        .terminal-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .terminal-btn.red { background-color: #ff5f56; }
-        .terminal-btn.yellow { background-color: #ffbd2e; }
-        .terminal-btn.green { background-color: #27c93f; }
-        
-        .terminal-title {
-            color: #aaa;
-            font-size: 0.9rem;
-            flex-grow: 1;
-            text-align: center;
-        }
-        
-        .terminal-body {
-            padding: 1rem;
-            color: #f0f0f0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
-        
-        .terminal-line {
-            margin-bottom: 0.5rem;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-        
-        .terminal-prompt {
-            color: #5faf5f;
-        }
-        
-        .terminal-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background-color: #f0f0f0;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-            margin-left: 2px;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        .terminal-command {
-            color: #569cd6;
-        }
-        
-        .terminal-response {
-            color: #f0f0f0;
-        }
-
-        .terminal-user {
-            color: #d7ba7d;
-            font-weight: bold;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .profile-name {
-                font-size: 2.2rem;
-            }
-            
-            .profile-title {
-                font-size: 1.2rem;
-            }
-            
-            .terminal-container {
-                border-radius: 0;
-                margin: 2rem -20px;
-                height: 250px;
-            }
-            
-            .terminal-body {
-                font-size: 0.85rem;
-                padding: 0.8rem;
-            }
-            
-            .profile-social {
-                gap: 1rem;
-            }
-            
-            .profile-social a {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -221,52 +39,22 @@
             </ul>
         </nav>
     </header>
-    
-    
-    <section class="profile-section">
-        <div class="profile-content">
-            <h1 class="profile-name">CARBO</h1>
-            <h2 class="profile-title">Italian Software Developer & CTF Player</h2>
-            <p class="profile-description">
-                I'm a computer science student from Italy and a passionate developer. I’m proficient in languages like Python, C++, and others, with a strong focus on cybersecurity and developing high-quality software.
-            </p>
-            <div class="profile-social">
-                <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
-                <a href="https://discord.com/users/315450580342538251" title="Discord"><i class='fab fa-discord'></i></a>
-            </div>
+    <div class="ctf-header">
+        <div class="container">
+            <h1 id="ctf-name">CTF Event</h1>
+            <p id="ctf-meta">Date • Team: TeamName • Rank: 0</p>
         </div>
-    </section>
+    </div>
 
     <div class="container writeup-container">
-        <!-- Animated Terminal with Fixed Size -->
-        <div class="terminal-container" id="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <div class="terminal-btn red"></div>
-                    <div class="terminal-btn yellow"></div>
-                    <div class="terminal-btn green"></div>
-                </div>
-                <div class="terminal-title">carbo@terminal:~</div>
-            </div>
-            <div class="terminal-body" id="terminal-output">
-                <!-- Terminal content will be generated by JavaScript -->
-            </div>
-        </div>
-
-        <!-- Category Tabs -->
         <div id="category-tabs" class="category-tabs">
             <!-- Category tabs will be generated here -->
         </div>
 
-        <!-- Writeups List -->
         <div id="writeup-list">
             <!-- Writeup list will be generated here from XML -->
         </div>
 
-        <!-- Writeup Content (hidden by default) -->
         <article id="writeup-content" style="display: none;">
             <header class="writeup-header">
                 <h1 class="writeup-title" id="wt-title">Writeup Title</h1>
@@ -306,76 +94,19 @@
             <a href="#" id="back-btn" class="btn btn-primary">← Back to Writeups</a>
         </article>
     </div>
-
-</main>
-
-<footer class="footer">
-    <p>&copy; 2025 Carbo'Blog. All rights reserved.</p>
-    <div class="social-links">
-        <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
-        <a href="https://discord.com/users/315450580342538251" title="Discord"><i class='fab fa-discord'></i></a>
-    </div>
-</footer>
-</div>
-
-<script src="assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <footer class="footer">
+        <p>&copy; 2025 Carbo'Blog. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
+            <a href="https://discord.com/users/315450580342538251" title="Discord"><i class='fab fa-discord'></i></a>
+        </div>
+    </footer>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Terminal animation - limited content for fixed size
-        const terminalLines = [
-    {text: "Last login: Sun Mar 30 18:45:12 on ttys000", delay: 800},
-    {text: "Welcome to Carbo's Blog", delay: 600},
-    {text: "Initializing environment...", delay: 400},
-    {text: "User: <span class='terminal-user'>RedTeamLearner</span>", type: "response", delay: 300},
-    {text: "Status: <span class='terminal-user'>CTF Player & Security Enthusiast</span>", type: "response", delay: 300},
-    {text: "Education: <span class='terminal-user'>Student at UniBA</span>", type: "response", delay: 300},
-    {text: "Skills: <span class='terminal-user'>Python, C++, Bash, PowerShell</span>", type: "response", delay: 300},
-    {text: "Loading social links...", delay: 600},
-    {text: "cat social.txt", type: "command", delay: 800},
-    {text: "GitHub: <a href='https://github.com/C4rbo' target='_blank' class='terminal-user'>github.com/C4rbo</a>", type: "response", delay: 150},
-    {text: "LinkedIn: <a href='https://www.linkedin.com/in/alessio-carbonara-675a1a295/' target='_blank' class='terminal-user'>linkedin.com/in/alessio-carbonara</a>", type: "response", delay: 150},
-    {text: "connect blog_db", type: "command", delay: 800},
-    {text: "Access granted. Ready to explore my blog", type: "response", delay: 400}
-];
-
-        const terminalOutput = document.getElementById('terminal-output');
-        let currentLine = 0;
-
-        function typeTerminal() {
-            if (currentLine < terminalLines.length) {
-                const line = terminalLines[currentLine];
-                const lineElement = document.createElement('div');
-                lineElement.className = 'terminal-line';
-                
-                if (line.type === "command") {
-                    lineElement.innerHTML = `<span class="terminal-prompt">$ </span><span class="terminal-command">${line.text}</span>`;
-                } else if (line.type === "response") {
-                    lineElement.innerHTML = `<span class="terminal-response">${line.text}</span>`;
-                } else {
-                    lineElement.innerHTML = `<span class="terminal-response">${line.text}</span>`;
-                }
-                
-                terminalOutput.appendChild(lineElement);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                
-                currentLine++;
-                setTimeout(typeTerminal, line.delay);
-            } else {
-                // Add blinking cursor at the end
-                const cursorElement = document.createElement('span');
-                cursorElement.className = 'terminal-cursor';
-                terminalOutput.appendChild(cursorElement);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }
-        }
-
-        // Start terminal animation
-        setTimeout(typeTerminal, 1000);
-
-        // CTF Writeups functionality
         const categoryTabs = document.getElementById('category-tabs');
         const writeupList = document.getElementById('writeup-list');
         const writeupContent = document.getElementById('writeup-content');

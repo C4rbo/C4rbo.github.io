@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<writeups>
+    <ctf id="ctf1">
+        <name>DEF CON CTF Qualifier 2023</name>
+        <date>May 20-22, 2023</date>
+        <description>The qualification round for DEF CON 31 CTF, one of the most prestigious CTF competitions.</description>
+        <writeups count="8"/>
+        <challenges count="15">
+            <challenge category="Web" points="100" difficulty="Easy" solved="true">
+                <title>Simple Web Challenge</title>
+                <filename>ctf1/index.html</filename>
+            </challenge>
+            <challenge category="Pwn" points="250" difficulty="Medium" solved="true">
+                <title>Buffer Overflow</title>
+                <filename>ctf1/index.html</filename>
+            </challenge>
+            <challenge category="Crypto" points="400" difficulty="Hard" solved="false">
+                <title>RSA Implementation Flaw</title>
+                <filename>ctf1/index.html</filename>
+            </challenge>
+        </challenges>
+    </ctf>
+    
+    <ctf id="ctf2">
+        <name>Google CTF 2023</name>
+        <date>June 24-25, 2023</date>
+        <description>Annual CTF competition organized by Google's security teams.</description>
+        <writeups count="12"/>
+        <challenges count="20">
+            <challenge category="Reverse" points="150" difficulty="Medium" solved="true">
+                <title>Crackme</title>
+                <filename>ctf2/challenge1.html</filename>
+            </challenge>
+            <challenge category="Web" points="300" difficulty="Hard" solved="true">
+                <title>DOM XSS</title>
+                <filename>ctf2/challenge2.html</filename>
+            </challenge>
+        </challenges>
+    </ctf>
+    
+    <ctf id="ctf3">
+        <name>Hack The Box University CTF 2023</name>
+        <date>April 15, 2023</date>
+        <description>University-level CTF competition organized by Hack The Box.</description>
+        <writeups count="5"/>
+        <challenges count="10">
+            <challenge category="Forensics" points="75" difficulty="Easy" solved="true">
+                <title>Packet Analysis</title>
+                <filename>ctf3/challenge1.html</filename>
+            </challenge>
+            <challenge category="Misc" points="200" difficulty="Medium" solved="false">
+                <title>QR Code Puzzle</title>
+                <filename>ctf3/challenge2.html</filename>
+            </challenge>
+        </challenges>
+    </ctf>
+</writeups>

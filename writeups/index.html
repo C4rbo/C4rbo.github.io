@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbo's Blog</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/ctf.css">
+    <link rel="stylesheet" href="/assets/css/writeup.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#4fc3f7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Carbo">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+    <style>
+        .ctf-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .ctf-card {
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #6e48aa;
+        }
+        
+        .ctf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .ctf-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            background: rgba(110, 72, 170, 0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .categories {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .category {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-flag"></i>
+            <h1>CTF Writeups</h1>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="overlay" id="overlay"></div>
+        <nav class="nav" id="mainNav">
+            <button class="close-menu" id="closeMenuBtn" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/writeups/index.html">Writeup</a></li>
+                <li><a href="/work.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <header>
+            <h1>My CTF Participations</h1>
+            <p>All competitions I've participated in</p>
+        </header>
+        
+        <div id="ctf-container" class="ctf-list">
+            <!-- CTFs will be loaded here -->
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Carbo'Blog. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
+            <a href="https://discord.com/users/315450580342538251" title="Discord"><i class="fas fa-discord"></i></a>
+        </div>
+    </footer>
+    <script src="/assets/js/script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('data.xml')
+            .then(response => response.text())
+            .then(str => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(str, "text/xml");
+                const ctfs = xml.querySelectorAll('ctf');
+                const container = document.getElementById('ctf-container');
+                
+                ctfs.forEach(ctf => {
+                    const card = document.createElement('a');
+                    card.href = `${ctf.getAttribute('id')}/index.html`;
+                    card.className = 'ctf-card';
+                    
+                    card.innerHTML = `
+                        <h2>${ctf.querySelector('name').textContent} ${ctf.getAttribute('year')}</h2>
+                        <div class="ctf-stats">
+                            <div class="stat">🏆 Rank ${ctf.querySelector('rank').textContent}</div>
+                            <div class="stat">📝 ${ctf.querySelector('writeups').textContent} writeups</div>
+                            <div class="stat">👥 ${ctf.querySelector('team').textContent}</div>
+                        </div>
+                        <p>${ctf.querySelector('date').textContent} • ${ctf.querySelector('location').textContent}</p>
+                        <div class="categories">
+                            ${ctf.querySelector('categories').textContent.split(', ').map(cat => 
+                                `<span class="category">${cat}</span>`
+                            ).join('')}
+                        </div>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading CTFs:', error);
+                document.getElementById('ctf-container').innerHTML = `
+                    <div class="error">
+                        <p>Failed to load CTF data. Please check:</p>
+                        <ul>
+                            <li>data.xml file exists</li>
+                            <li>XML format is correct</li>
+                        </ul>
+                    </div>
+                `;
+            });
+    });
+    </script>
+</body>
+</html>
