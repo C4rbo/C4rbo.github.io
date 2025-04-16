@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carbo's Blog</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/markdown.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" content="#4fc3f7">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Carbo">
+        <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+        <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+        <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+        <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    </head>
+<body>
+    <canvas id="binaryRain" class="binary-rain"></canvas>
+    
+    <header class="header">
+        <div class="logo">
+            <h1>Carbo</h1>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="overlay" id="overlay"></div>
+        <nav class="nav" id="mainNav">
+            <button class="close-menu" id="closeMenuBtn" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/aboutme.html">About</a></li>
+                <li><a href="/ctf-writeups/index.html">Writeups</a></li>
+                <!-- <li><a href="/work.html">Projects</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-text="Test1 CTF">Test1 CTF</h1>
+        </div>
+        
+        <section class="about-section">
+            <h2 class="section-title">
+                <i>📝</i> Available Writeups
+            </h2>
+            <div id="writeups-list" class="skills-grid">
+                <!-- Popolato dinamicamente da JS -->
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2 class="section-title">
+                <i>📄</i> Writeup Content
+            </h2>
+            <div id="writeup-content" class="bio-content">
+                <!-- Contenuto del writeup verrà mostrato qui -->
+                <p>Select a writeup from the list above to view its content.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Carbo's Blog. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
+            <a href="https://discord.com/users/315450580342538251" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script src="/assets/js/ctf.js"></script>
+</body>
+</html>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbo's Blog</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/terminal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#4fc3f7">
@@ -16,10 +15,57 @@
     <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
     <link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
     <link rel="icon" href="/assets/icons/favicon-16x16.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .skill-item {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            color: #eee;
+            text-decoration: none;
+            display: block;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(110, 72, 170, 0.5);
+            background-color: #292929;
+        }
+
+        .skill-item h3.skill-name {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem;
+            color: #8f57ff;
+        }
+
+        .skill-item p.category-label {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin: 0.3rem 0;
+        }
+
+        .skill-item p.social-link {
+            font-size: 0.9rem;
+            color: #6e48aa;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .skill-item:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 6px rgba(110, 72, 170, 0.4);
+        }
+
+    </style>
 </head>
 <body>
     <canvas id="binaryRain" class="binary-rain"></canvas>
-
+    
     <header class="header">
         <div class="logo">
             <h1>Carbo</h1>
@@ -40,39 +86,28 @@
             </ul>
         </nav>
     </header>
-    
-    <main class="main-container">
+
+    <main class="about-container">
         <div class="glitch-wrapper">
-            <h1 class="glitch" data-text="CARBO">CARBO</h1>
+            <h1 class="glitch" data-text="CTF Writeups">CTF Writeups</h1>
         </div>
+        <p class="tagline">Personal archive of CTF challenges and solutions</p>
         
-        <p class="tagline">
-            // I'm a computer science student from Italy and a passionate developer. I'm proficient in languages like Python, C++, and others, with a strong focus on cybersecurity and developing high-quality software.
-        </p>
-
-        <div class="social-links">
-            <a href="https://github.com/C4rbo" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.tiktok.com/@carbodev" title="TitTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.linkedin.com/in/alessio-carbonara-675a1a295/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="CTFTime"><i class="fas fa-flag"></i></a>
-            <a href="https://discord.com/users/315450580342538251" title="Discord"><i class="fab fa-discord"></i></a>
-        </div>
-
-        <div class="terminal-container" id="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <div class="terminal-btn red"></div>
-                    <div class="terminal-btn yellow"></div>
-                    <div class="terminal-btn green"></div>
-                </div>
-                <div class="terminal-title">carbo@terminal:~</div>
+        <section class="about-section">
+            <h2 class="section-title">
+                <i>📌</i> CTF Organizers
+            </h2>
+            <div id="organizers-list" class="skills-grid">
             </div>
-            <div class="terminal-body" id="terminal-output">
-            </div>
-        </div>
+        </section>
 
-        <div id="category-tabs" class="category-tabs"></div>
-        <div id="writeup-list"></div>
+        <section class="about-section">
+            <h2 class="section-title">
+                <i>📁</i> Available CTFs
+            </h2>
+            <div id="ctf-list" class="skills-grid">
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -86,7 +121,7 @@
         </div>
     </footer>
 
+    <script src="/assets/js/ctf.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/terminal.js"></script>
 </body>
 </html>

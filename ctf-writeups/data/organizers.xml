@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organizers>
+    <organizer>
+        <name>Hack The Box</name>
+        <url>https://www.hackthebox.com/</url>
+    </organizer>
+    <organizer>
+        <name>CTFtime</name>
+        <url>https://ctftime.org/</url>
+    </organizer>
+    <organizer>
+        <name>picoCTF</name>
+        <url>https://picoctf.org/</url>
+    </organizer>
+    <organizer>
+        <name>DEF CON</name>
+        <url>https://defcon.org/</url>
+    </organizer>
+    <organizer>
+        <name>TryHackMe</name>
+        <url>https://tryhackme.com/</url>
+    </organizer>
+    <organizer>
+        <name>Root-Me</name>
+        <url>https://www.root-me.org/</url>
+    </organizer>
+</organizers>

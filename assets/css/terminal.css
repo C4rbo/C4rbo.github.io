@@ -1,0 +1,119 @@
+.terminal-container {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 3rem auto;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    max-width: 900px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 12px;
+}
+
+.terminal-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-btn.red { background-color: #ff5f56; }
+.terminal-btn.yellow { background-color: #ffbd2e; }
+.terminal-btn.green { background-color: #27c93f; }
+
+.terminal-title {
+    color: #aaa;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.terminal-body {
+    padding: 1rem;
+    color: #f0f0f0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.terminal-line {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-prompt {
+    color: #5faf5f;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: #f0f0f0;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.terminal-command {
+    color: #569cd6;
+}
+
+.terminal-response {
+    color: #f0f0f0;
+}
+
+.terminal-user {
+    color: #d7ba7d;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .profile-name {
+        font-size: 2.2rem;
+    }
+    
+    .profile-title {
+        font-size: 1.2rem;
+    }
+    
+    .terminal-container {
+        border-radius: 0;
+        margin: 2rem -20px;
+        height: 250px;
+    }
+    
+    .terminal-body {
+        font-size: 0.85rem;
+        padding: 0.8rem;
+    }
+    
+    .profile-social {
+        gap: 1rem;
+    }
+    
+    .profile-social a {
+        font-size: 1.3rem;
+    }
+}
